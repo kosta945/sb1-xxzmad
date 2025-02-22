@@ -1,6 +1,3 @@
-import { JobFormData } from '../components/JobCreationForm';
-import { ContactFormData } from '../components/ContactDetailsForm';
-
 export interface DeliveryItems {
   expected: string;
   delivered: string;
@@ -34,7 +31,7 @@ export function generateJobId(): string {
   return `${prefix}-${number}`;
 }
 
-export function saveJob(jobData: JobFormData, contactData: ContactFormData): void {
+export function saveJob(jobData: any, contactData: any): void {
   const jobs = getJobs();
   const newJob: Job = {
     ...jobData,

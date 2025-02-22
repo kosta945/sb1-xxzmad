@@ -1,5 +1,5 @@
 import React from 'react';
-import { Package } from 'lucide-react';
+import { Package, Home } from 'lucide-react';
 
 interface JobCreationFormProps {
   onNext: (data: JobFormData) => void;
@@ -26,6 +26,15 @@ export function JobCreationForm({ onNext }: JobCreationFormProps) {
       referenceNumber: formData.get('referenceNumber') as string,
       items: formData.get('items') as string,
     });
+  };
+
+  const handleViewTerms = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.location.search = 'terms';
+  };
+
+  const handleHome = () => {
+    window.location.search = 'jobs';
   };
 
   return (
@@ -105,13 +114,31 @@ export function JobCreationForm({ onNext }: JobCreationFormProps) {
           />
         </div>
 
+        <div className="flex items-center space-x-2 text-sm">
+          <input
+            type="checkbox"
+            id="terms"
+            required
+            className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+          />
+          <label htmlFor="terms" className="text-gray-600">
+            I Accept{' '}
+            <button
+              onClick={handleViewTerms}
+              className="text-blue-500 hover:underline"
+            >
+              terms and conditions
+            </button>
+          </label>
+        </div>
+
         <div className="flex space-x-4 pt-4">
           <button
             type="button"
-            onClick={() => window.history.back()}
+            onClick={handleHome}
             className="flex-1 py-3 px-6 bg-gray-100 text-gray-500 rounded-full font-medium hover:bg-gray-200 transition-colors"
           >
-            Back
+            Home
           </button>
           <button
             type="submit"
