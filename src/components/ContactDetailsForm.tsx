@@ -105,18 +105,6 @@ export function ContactDetailsForm({ onSubmit, jobData }: ContactDetailsFormProp
           </div>
         </div>
 
-        <div className="flex items-center space-x-2 text-sm">
-          <input
-            type="checkbox"
-            id="terms"
-            required
-            className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
-          />
-          <label htmlFor="terms" className="text-gray-600">
-            I Accept <span className="text-blue-500">terms and conditions</span>
-          </label>
-        </div>
-
         <div className="flex space-x-4 pt-4">
           <button
             type="button"

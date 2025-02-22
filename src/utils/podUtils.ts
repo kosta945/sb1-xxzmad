@@ -1,5 +1,7 @@
 export function generatePodLink(consignmentNumber: string): string {
-  return `${window.location.origin}?confirm=${consignmentNumber}`;
+  // Use window.location.origin for local development, otherwise use podowl.com.au
+  const baseUrl = window.location.hostname === 'localhost' ? window.location.origin : 'https://podowl.com.au';
+  return `${baseUrl}/?confirm=${consignmentNumber}`;
 }
 
 export function generateSmsMessage(driverName: string, items: string, address: string, podLink: string): string {
